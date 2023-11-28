@@ -122,21 +122,52 @@ class AboutArabica extends StatelessWidget {
     );
   }
 }
+class AboutRobusta extends StatelessWidget {
+  const AboutRobusta({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      width: double.infinity,
+      // decoration: BoxDecoration(
+        // color: Colors.grey[200],
+        // borderRadius: BorderRadius.circular(15.0),
+      // ),
+      child: Column(children: [
+        SizedBox(
+          width: double.infinity,
+          child: Text('Robusta', style: GoogleFonts.poppins(textStyle: const TextStyle(fontWeight: FontWeight.bold), fontSize: 24),),
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: Text("Robusta coffee, on the other hand, is derived from the Coffea canephora plant and is known for its robust and bold flavor profile. Robusta beans contain more caffeine than Arabica beans, leading to a stronger and more bitter taste. This variety is often chosen for its hardiness and resistance to pests and diseases, thriving in lower elevations and warmer climates. Robusta coffee is characterized by a fuller body, earthy and woody notes, and a more astringent or bitter aftertaste compared to Arabica. It is frequently used in espresso blends and instant coffee due to its strong flavor and higher caffeine content", style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 16))),
+        )
+      ],),
+    );
+  }
+}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Material(
-      child: Column(
-        children: [
-          AppBar(),
-          TypesOfCoffee(),
-          // SizedBox(height: 20),
-          AboutArabica(),
+    return Material(
+      child: ListView(
+        children: const <Widget>[
+          Column(
+            children: [
+              AppBar(),
+              TypesOfCoffee(),
+              // SizedBox(height: 20),
+              AboutArabica(),
+              AboutRobusta(),
+            ],
+          ),
         ],
-      ),
+      )
     );
   }
 }
