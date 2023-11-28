@@ -18,20 +18,74 @@ class AppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
+      height: 60,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       // decoration: const BoxDecoration(color: Colors.white),
       child: Row(
         children: [
           Expanded(child:
             Center(child:
-              Text('About Coffee', style: GoogleFonts.lato(textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+              Text('About Coffee', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold))),
             ),
           )
         ],
       )
     );
   }
+}
+
+class TypesOfCoffee extends StatelessWidget {
+  const TypesOfCoffee({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Column(children: [
+        SizedBox(
+          width: double.infinity,
+          child:
+          Text('Types of Coffee', style: GoogleFonts.poppins(textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))),
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          width: double.infinity,
+          child:
+          // Text('there are two types of coffee that are commonly found which is Arabica and Robusta coffee', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 14))),
+          RichText(
+            text: TextSpan(
+              text: 'There are two types of coffee that are commonly found which is ',
+              style: GoogleFonts.poppins(textStyle: const TextStyle(color: Colors.black, fontSize: 16)),
+              children: const <TextSpan>[
+                TextSpan(
+                  text: 'Arabica',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text: ' and ',
+                ),
+                TextSpan(
+                  text: 'Robusta',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text: ' coffee.',
+                ),
+              ],
+            ),
+          ),
+
+        ),
+      ],),
+    );
+  }
+
 }
 
 class HomePage extends StatelessWidget {
@@ -43,6 +97,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           AppBar(),
+          TypesOfCoffee(),
         ],
       ),
     );
